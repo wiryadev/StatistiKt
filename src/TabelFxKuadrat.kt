@@ -1,3 +1,4 @@
+import java.math.BigDecimal
 import kotlin.math.*
 
 fun main() {
@@ -29,6 +30,16 @@ fun main() {
         65, 70
     ).sorted()
 
+    // No 2
+//    val listData = listOf(
+//        90, 95, 110, 80, 95,
+//        105, 100, 85, 115, 100,
+//        110, 85, 90, 105, 95,
+//        90, 110, 85, 100, 105,
+//        95, 110, 90, 110, 90,
+//        95, 90
+//    ).sorted()
+
     val xMin = listData.first()
     val xMax = listData.last()
     val range = xMax - xMin
@@ -40,6 +51,7 @@ fun main() {
 //    val intervalLength = (range.toDouble() / kRounded).roundToInt()
     val intervalLength = ceil((range.toDouble() / kRounded)).toInt()
 
+    println("Banyak data: ${listData.size}")
     println("Nilai terendah: $xMin")
     println("Nilai tertinggi: $xMax")
     println("Jangkauan : $range")
@@ -93,7 +105,27 @@ fun main() {
     println("Total:\t$totalDataSize\t\t\t$totalFx\t$totalFxPow")
     println()
 
-    val variance = (totalFxPow - (totalFx.pow(2.0) / totalDataSize)) / totalDataSize
-    println("Variansi: $variance")
-    println("Simpangan Baku: ${sqrt(variance)}")
+    val sigmaTotalFxPowed = totalFx.pow(2.0)
+    val variance = (totalFxPow - (sigmaTotalFxPowed / totalDataSize)) / totalDataSize
+//    val variance = (476650.0 - (6070.0.pow(2.0) / 80)) / 80
+    println(
+        """
+            Variansi = $totalFxPow - ($totalFxPow^2/$totalDataSize)
+                       ---------------------------
+                                $totalDataSize
+        """.trimIndent()
+    )
+    println(
+        """
+            Variansi = $totalFxPow - (${BigDecimal(sigmaTotalFxPowed).toPlainString()}/$totalDataSize)
+                       ---------------------------
+                                $totalDataSize
+        """.trimIndent()
+    )
+    println("Variansi = $variance")
+
+    println()
+    println("Simpangan Baku = ${sqrt(variance)}")
+
+    println(BigDecimal(6070.0.pow(2)).toPlainString())
 }
