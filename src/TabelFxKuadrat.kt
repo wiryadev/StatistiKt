@@ -18,17 +18,17 @@ fun main() {
 //    ).sorted()
 
     // No 1
-    val listData = listOf(
-        70, 85, 60, 70, 75, 65,
-        80, 95, 55, 70, 75, 60,
-        50, 80, 70, 75, 55, 65,
-        75, 60, 65, 70, 85, 90,
-        70, 60, 75, 65, 85, 75,
-        55, 80, 70, 65, 80, 75,
-        60, 70, 80, 85, 65, 75,
-        60, 80, 65, 90, 75, 70,
-        65, 70
-    ).sorted()
+//    val listData = listOf(
+//        70, 85, 60, 70, 75, 65,
+//        80, 95, 55, 70, 75, 60,
+//        50, 80, 70, 75, 55, 65,
+//        75, 60, 65, 70, 85, 90,
+//        70, 60, 75, 65, 85, 75,
+//        55, 80, 70, 65, 80, 75,
+//        60, 70, 80, 85, 65, 75,
+//        60, 80, 65, 90, 75, 70,
+//        65, 70
+//    ).sorted()
 
     // No 2
 //    val listData = listOf(
@@ -39,6 +39,11 @@ fun main() {
 //        95, 110, 90, 110, 90,
 //        95, 90
 //    ).sorted()
+
+    // No 3
+    val listData = listOf(
+        5, 4, 9, 0, 5, 6, 10, 2, 4, 8, 1, 7, 5, 9, 3, 4, 8, 6, 2, 5, 3, 7, 4, 7, 5, 3, 6, 5, 6, 4
+    ).sorted()
 
     val xMin = listData.first()
     val xMax = listData.last()
@@ -110,7 +115,7 @@ fun main() {
 //    val variance = (476650.0 - (6070.0.pow(2.0) / 80)) / 80
     println(
         """
-            Variansi = $totalFxPow - ($totalFxPow^2/$totalDataSize)
+            Variansi = $totalFxPow - ($totalFx^2/$totalDataSize)
                        ---------------------------
                                 $totalDataSize
         """.trimIndent()
@@ -118,6 +123,20 @@ fun main() {
     println(
         """
             Variansi = $totalFxPow - (${BigDecimal(sigmaTotalFxPowed).toPlainString()}/$totalDataSize)
+                       ---------------------------
+                                $totalDataSize
+        """.trimIndent()
+    )
+    println(
+        """
+            Variansi = $totalFxPow - ${sigmaTotalFxPowed / totalDataSize}
+                       ---------------------------
+                                $totalDataSize
+        """.trimIndent()
+    )
+    println(
+        """
+            Variansi = ${totalFxPow - sigmaTotalFxPowed / totalDataSize}
                        ---------------------------
                                 $totalDataSize
         """.trimIndent()
