@@ -25,23 +25,29 @@ fun main() {
     val xPow = x.map { it * it }
     val yPow = y.map { it * it }
 
+    val xy = List(x.size) { index ->
+        x[index] * y[index]
+    }
+
+    println("X² : $xPow")
+    println("Y²: $yPow")
+    println("XY: $xy")
+    println()
+
     println("=================")
     println("Tabel Korelasi")
     println("=================")
 
-    var totalXy = 0
-    println("\t\tX\t\tY\t\tXY\t\tX2\t\tY2")
+    println("\t\tX\t\tY\t\tXY\t\tX²\t\tY²")
     x.forEachIndexed { i, _ ->
-        val xy = x[i] * y[i]
-        totalXy += xy
-
-        val additionalTabX2 = if (xy < 1000) "\t" else ""
-        println("\t\t${x[i]}\t\t${y[i]}\t\t$xy\t$additionalTabX2${xPow[i]}\t\t${yPow[i]}")
+        val additionalTabX2 = if (xy[i] < 1000) "\t" else ""
+        println("\t\t${x[i]}\t\t${y[i]}\t\t${xy[i]}\t$additionalTabX2${xPow[i]}\t\t${yPow[i]}")
     }
-    println("Total:\t${x.sum()}\t\t${y.sum()}\t$totalXy\t${xPow.sum()}\t${yPow.sum()}")
+    println("Total:\t${x.sum()}\t\t${y.sum()}\t${xy.sum()}\t${xPow.sum()}\t${yPow.sum()}")
     println()
 
     val n = x.size
+    val totalXy = xy.sum()
     println(
         """
             r =     ${n}($totalXy) - (${x.sum()})(${y.sum()})
@@ -94,4 +100,5 @@ fun main() {
             r = $finalResult
         """.trimIndent()
     )
+
 }
