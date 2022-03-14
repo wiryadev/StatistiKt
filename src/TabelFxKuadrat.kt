@@ -146,5 +146,5 @@ fun main() {
     println()
     println("Simpangan Baku = ${sqrt(variance)}")
 
-    println(BigDecimal(6070.0.pow(2)).toPlainString())
+//    println(BigDecimal(6070.0.pow(2)).toPlainString())
 }
