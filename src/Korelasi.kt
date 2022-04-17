@@ -4,8 +4,11 @@ import kotlin.math.sqrt
 fun main() {
 
     // Sample
-    val x = arrayOf(90, 100, 100, 95, 105, 110, 105, 105, 115, 120)
-    val y = arrayOf(70, 75, 80, 80, 85, 85, 85, 90, 95, 100)
+//    val x = arrayOf(90, 100, 100, 95, 105, 110, 105, 105, 115, 120)
+//    val y = arrayOf(70, 75, 80, 80, 85, 85, 85, 90, 95, 100)
+
+    val x = arrayOf(9, 8, 8, 5, 4, 8, 7, 6, 7, 7, 8, 6, 6, 7, 7, 8)
+    val y = arrayOf(8, 7, 8, 7, 5, 9, 8, 7, 7, 8, 8, 6, 7, 8, 7, 9)
 
     // Sample 2
 //    val x = arrayOf(1, 2, 3, 4, 4, 5, 6, 6, 7, 8, 8, 9)
@@ -44,7 +47,7 @@ fun main() {
         val additionalTabX2 = if (xy[i] < 1000) "\t" else ""
         println("\t\t${x[i]}\t\t${y[i]}\t\t${xy[i]}\t$additionalTabX2${xPow[i]}\t\t${yPow[i]}")
     }
-    println("Total:\t${x.sum()}\t\t${y.sum()}\t${xy.sum()}\t${xPow.sum()}\t${yPow.sum()}")
+    println("Total:\t${x.sum()}\t\t${y.sum()}\t\t${xy.sum()}\t\t${xPow.sum()}\t\t${yPow.sum()}")
     println()
 
     val n = x.size

@@ -94,7 +94,7 @@ fun main() {
     println("Tabel Distribusi")
     println("=================")
 
-    println("Nilai\tf\tMedian\tfX\t\tf*X2\t\ttData")
+    println("Nilai\tf\tMedian\tfX\t\tf*X²\t\ttData")
     mappedDistribution.forEach {
         val intervalTitle = "${it.key.first}-${it.key.second}"
         val freq = it.value.size
